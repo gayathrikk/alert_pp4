@@ -96,7 +96,7 @@ public class pp4storage {
         String[] bcc = {"divya.d@htic.iitm.ac.in"};
 	    
 	        // Sender's email ID needs to be mentioned
-	        String from = "gayathri@htic.iitm.ac.in";
+	        String from = "automationsoftware25@gmail.com";
 	        // Assuming you are sending email through Gmail's SMTP
 	        String host = "smtp.gmail.com";
 	        // Get system properties
@@ -109,7 +109,7 @@ public class pp4storage {
 	        // Get the Session object and pass username and password
 	        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 	            protected PasswordAuthentication getPasswordAuthentication() {
-	                return new PasswordAuthentication("gayathri@htic.iitm.ac.in", "Gayu@0918");
+	                return new PasswordAuthentication("automationsoftware25@gmail.com", "wjzcgaramsqvagxu");
 	            }
 	        });
 	        // Used to debug SMTP issues
