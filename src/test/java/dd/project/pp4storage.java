@@ -92,7 +92,8 @@ public class pp4storage {
 	 private void sendEmailAlert(String messageBody) {
 	        // Recipient's email ID needs to be mentioned.
 	  String[] to = {"nathan.i@htic.iitm.ac.in"};
-        String[] cc = {"venip@htic.iitm.ac.in"};
+       String[] cc = {"venip@htic.iitm.ac.in", "nitheshkumarsundhar@gmail.com"};
+
         String[] bcc = {"divya.d@htic.iitm.ac.in"};
 	    
 	        // Sender's email ID needs to be mentioned
