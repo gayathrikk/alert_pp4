@@ -25,9 +25,9 @@ public class pp4storage {
          JSch jsch = new JSch();
          com.jcraft.jsch.Session session = null;
          try {
-             String user = "hbp";
+             String user = "appUser";
              String host = "pp4.humanbrain.in";
-             String password = "Health#123";
+             String password = "Brain@123";
              int port = 22;
              session = jsch.getSession(user, host, port);
              session.setPassword(password);
