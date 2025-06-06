@@ -34,7 +34,7 @@ public class pp4storage {
              session.setConfig("StrictHostKeyChecking", "no");
              session.connect();
              Channel channel = session.openChannel("exec");
-             ((ChannelExec) channel).setCommand("df -h /mnt/local/nvmestorage");
+             ((ChannelExec) channel).setCommand("df -h /mnt/local/nvmestorage/postImageProcessor");
              channel.setInputStream(null);
              ((ChannelExec) channel).setErrStream(System.err);
              InputStream in = channel.getInputStream();
