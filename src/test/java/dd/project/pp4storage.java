@@ -21,25 +21,27 @@ import com.jcraft.jsch.JSch;
 
 public class pp4storage {
 	 @Test
-     public void testStorageDetails() {
-         JSch jsch = new JSch();
-         com.jcraft.jsch.Session session = null;
-         try {
-             String user = "appUser";
-             String host = "pp4.humanbrain.in";
-             String password = "Brain@123";
-             int port = 22;
-             session = jsch.getSession(user, host, port);
-             session.setPassword(password);
-             session.setConfig("StrictHostKeyChecking", "no");
-             session.connect();
-             Channel channel = session.openChannel("exec");
-             ((ChannelExec) channel).setCommand("df -h /mnt/local/nvmestorage/postImageProcessor");
-             channel.setInputStream(null);
-             ((ChannelExec) channel).setErrStream(System.err);
-             InputStream in = channel.getInputStream();
-             channel.connect();
-               byte[] tmp = new byte[1024];
+	    public void testStorageDetails() {
+	        JSch jsch = new JSch();
+	        com.jcraft.jsch.Session session = null;
+	        try {
+	            String user = "appUser";
+	            String host = "pp4.humanbrain.in";
+	            String password = "Brain@123";  // ⚠ Consider using environment variables instead.
+	            int port = 22;
+	            session = jsch.getSession(user, host, port);
+	            session.setPassword(password);
+	            session.setConfig("StrictHostKeyChecking", "no");
+	            session.connect();
+
+	            Channel channel = session.openChannel("exec");
+	            ((ChannelExec) channel).setCommand("ls -lh --time-style=long-iso /mnt/local/nvmestorage/postImageProcessor");
+	            channel.setInputStream(null);
+	            ((ChannelExec) channel).setErrStream(System.err);
+	            InputStream in = channel.getInputStream();
+	            channel.connect();
+
+	            byte[] tmp = new byte[1024];
 	            StringBuilder output = new StringBuilder();
 	            while (true) {
 	                while (in.available() > 0) {
@@ -106,9 +108,9 @@ public class pp4storage {
 
 	   private void sendEmailAlert(String todayFiles, String oldFiles, int todayFileCount, int oldFileCount, String machineName) {
 	        String[] to = {"nathan.i@htic.iitm.ac.in"};
-        String[] cc = {"venip@htic.iitm.ac.in", "nitheshkumarsundhar@gmail.com"};
+     String[] cc = {"venip@htic.iitm.ac.in", "nitheshkumarsundhar@gmail.com"};
 
-        String[] bcc = {"divya.d@htic.iitm.ac.in"};
+     String[] bcc = {"divya.d@htic.iitm.ac.in"};
 
 	        String from = "automationsoftware25@gmail.com";
 	        String host = "smtp.gmail.com";
